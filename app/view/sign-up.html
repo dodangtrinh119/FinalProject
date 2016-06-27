@@ -1,17 +1,32 @@
-<form ng-submit="createAccount()">
-    <p>Name</p>
-    <input type="text" ng-model="userInfo.name[0]" required> <input type="text" ng-model="userInfo.name[1]" required>
-    <p>Work Location</p>
-    <input type="text" ng-model="userInfo.workInfo.location" required>
-    <p>Work Industry</p>
-    <input type="text" ng-model="userInfo.workInfo.industry" required>
+<div class="center-align" style="margin-top: 150px">
+    <h1>SIGN UP</h1>
+    <form class="editBox" ng-submit="createAccount()" style="position: static; display: inline-block; margin: 0px; width: 226px">
+        <div>
+            <p class="editTitle">Name</p>
+            <div style="margin: 6px 0px 12px">
+                <input type="text" style="width: 49%" ng-model="userInfo.name[0]" required><!--
+         --><span style="width: 2%"> </span><!--
+         --><input type="text" style="width: 49%" ng-model="userInfo.name[1]" required>
+            </div>
 
-    <p>Email</p>
-    <input type="email" ng-model="account" required>
-    <p>Password</p>
-    <input type="password" ng-model="password" required>
-    <p>Confirm Password</p>
-    <input type="password" ng-model="passwordConfirm">
+            <p class="editTitle">Work Area</p>
+            <input type="text" style="margin: 6px 0px 12px; width: 100%" ng-model="userInfo.workInfo.area" required>
 
-    <button type="submit">Create Account</button>
-</form>
+            <p class="editTitle">Work Industry</p>
+            <input type="text" style="margin: 6px 0px 12px; width: 100%" ng-model="userInfo.workInfo.industry" required>
+
+            <p class="editTitle">Email</p>
+            <input type="email" style="margin: 6px 0px 12px; width: 100%" ng-model="account" required>
+
+            <p class="editTitle">Password</p>
+            <input type="password" style="margin: 6px 0px 12px; width: 100%" ng-model="password" required>
+
+            <p class="editTitle">Confirm Password</p>
+            <input type="password" style="margin: 6px 0px 12px; width: 100%" ng-model="passwordConfirm">
+
+        </div>
+        <div>
+            <button class="waves-effect waves-light btn" type="submit" style="padding: 0px; width: 49%; display: inline-block;">Create Account</button>
+        </div>
+    </form>
+</div>

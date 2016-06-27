@@ -29,12 +29,12 @@ app.config(['$locationProvider', '$routeProvider',
 
 app.run(['$rootScope', '$location', 'authService', function ($rootScope, $location, authService) {
     authService.onAuthStateChanged(function (user) {
-        if (user)
-            $location.path('/profile').replace();
-        else
-            $location.path('/sign-in').replace();
-
-        $rootScope.$apply();
+        $rootScope.$apply(function () {
+            if (user)
+                $location.path('/profile').replace();
+            else
+                $location.path('/sign-in').replace();
+        });
     });
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
@@ -42,7 +42,7 @@ app.run(['$rootScope', '$location', 'authService', function ($rootScope, $locati
             if ($location.path() == '/sign-in' || $location.path() == '/landing')
                 event.preventDefault();
         }
-        else if ($location.path().includes('/profile'))
+        else if (!current.includes('/profile') && $location.path().includes('/profile'))
             event.preventDefault();
     });
 }]);

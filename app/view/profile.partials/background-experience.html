@@ -1,0 +1,140 @@
+<div ng-controller="experienceController" id="experience-section" ng-class="{'edit-activator': editable}" class="editBox-container section-container background-section">
+    <!--EXPERIENCE EDIT BOX-->
+    <div id="experience-add" class="editBox" ng-show="showExperienceAdd">
+        <div class="row">
+            <div class="col" style="width: 50%; padding-left: 0px;">
+                <p class="editTitle">Company Name</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.companyName">
+                </div>
+
+                <p class="editTitle">Company Website</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.companyUrl">
+                </div>
+
+                <p class="editTitle">Company Logo</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.companyLogo">
+                </div>
+
+                <p class="editTitle">Title</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.title">
+                </div>
+
+                <p class="editTitle">Period</p>
+                <div style="margin: 6px 0px 0px">
+                    <input type="text" style="width: 49%" ng-model="experienceAdd.startPeriod"><!--
+                                         --><span style="width: 2%"> </span><!--
+                                         --><input type="text" style="width: 49%" ng-model="experienceAdd.endPeriod">
+                </div>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.duration">
+                </div>
+
+                <p class="editTitle">Location</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="experienceAdd.location">
+                </div>
+            </div>
+            <div style="width: 4%"></div>
+            <div class="col" style="width: 50%;  padding-right: 0px;">
+                <p class="editTitle">Description</p>
+                <div style="margin: 6px 0px 12px">
+                    <textarea style="width: 100%; height: 350px" ng-model="experienceAdd.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <a class="waves-effect waves-light btn edit-confirm" ng-click="experienceAddConfirm()">Add</a>
+        <a class="waves-effect waves-light btn edit-cancel" ng-click="showExperienceAdd=false">Cancel</a>
+    </div>
+    <!--EXPERIENCE EDIT BUTTONS-->
+    <div class="edit-section">
+        <a class="overlay-button add-button" ng-click="experienceAddShow()"></a>
+    </div>
+    <!--EXPERIENCE DISPLAY CONTENTS-->
+    <div class="valign-wrapper background-section-header">
+        <img src=".\images\commons\header-experience.png" class="valign"/>
+        <h3 class="valign">Experience</h3>
+    </div>
+    <div class="edit-activator" ng-repeat="exp in experience">
+        <div class="editBox-container section-container row info-bar">
+            <!--EXPERIENCE SINGLE ITEM EDIT BOX-->
+            <div id="experience-edit" class="editBox" ng-show="showExperienceEdit[$index]">
+                <div class="row">
+                    <div class="col" style="width: 50%; padding-left: 0px;">
+                        <p class="editTitle">Company Name</p>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.companyName">
+                        </div>
+
+                        <p class="editTitle">Company Website</p>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.companyUrl">
+                        </div>
+
+                        <p class="editTitle">Company Logo</p>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.companyLogo">
+                        </div>
+
+                        <p class="editTitle">Title</p>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.title">
+                        </div>
+
+                        <p class="editTitle">Period</p>
+                        <div style="margin: 6px 0px 0px">
+                            <input type="text" style="width: 49%" ng-model="experienceEdit.startPeriod"><!--
+                                         --><span style="width: 2%"> </span><!--
+                                         --><input type="text" style="width: 49%" ng-model="experienceEdit.endPeriod">
+                        </div>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.duration">
+                        </div>
+
+                        <p class="editTitle">Location</p>
+                        <div style="margin: 6px 0px 12px">
+                            <input type="text" style="width: 100%" ng-model="experienceEdit.location">
+                        </div>
+                    </div>
+                    <div style="width: 4%"></div>
+                    <div class="col" style="width: 50%;  padding-right: 0px;">
+                        <p class="editTitle">Description</p>
+                        <div style="margin: 6px 0px 12px">
+                                                    <textarea style="width: 100%; height: 350px" ng-model="experienceEdit.description">
+                                                    </textarea>
+                        </div>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn edit-confirm" ng-click="experienceEditConfirm($index)">Save</a>
+                <a class="waves-effect waves-light btn edit-cancel" ng-click="showExperienceEdit[$index]=false">Cancel</a>
+            </div>
+            <!--EXPERIENCE SINGLE ITEM EDIT BUTTONS-->
+            <div class="edit-section" style="padding-top: 20px">
+                <a class="overlay-button edit-button" style="height: 24px; width: 24px;" ng-click="experienceEditShow($index)"></a><!--
+                                     --><a class="overlay-button remove-button" style="height: 24px; width: 24px;" ng-click="removeExperience($index)"></a>
+            </div>
+            <!--EXPERIENCE SINGLE DISPLAY CONTENTS-->
+            <div style="display: inline-block">
+                <a href="" title="Learn more about this title" class="info-title">
+                    <span class="truncate-large">{{exp.title}}</span>
+                </a>
+                <a href="{{exp.companyUrl}}" class="info-subtitle">
+                    <span class="truncate-large">{{exp.companyName}}</span>
+                </a>
+                <span class="info-date truncate-large">{{exp.startPeriod}} – {{exp.endPeriod}}
+                    <span ng-show="exp.duration != ''">({{exp.duration}})</span>
+                    <span ng-show="exp.location != ''"> | {{exp.location}}</span>
+                </span>
+            </div>
+            <div class="info-logo" ng-show="exp.companyLogo != ''">
+                <a href="{{exp.companyUrl}}">
+                    <img ng-src="{{exp.companyLogo}}"/>
+                </a>
+            </div>
+        </div>
+        <p class="description">{{exp.description}}</p>
+    </div>
+</div>

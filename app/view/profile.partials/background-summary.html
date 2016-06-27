@@ -1,0 +1,22 @@
+<div ng-controller="summaryController" ng-class="{'edit-activator': editable}" class="editBox-container section-container background-section">
+    <!--SUMMARY EDIT BOX-->
+    <div id="summary-edit" class="editBox" ng-show="showSummaryEdit">
+        <p class="editTitle">Summary</p>
+        <div style="margin: 6px 0px 12px">
+                                    <textarea style="width: 100%; height: 300px" ng-model="summaryEdit">
+                                    </textarea>
+        </div>
+        <a class="waves-effect waves-light btn edit-confirm" ng-click="summaryEditConfirm()">Save</a>
+        <a class="waves-effect waves-light btn edit-cancel" ng-click="showSummaryEdit=false">Cancel</a>
+    </div>
+    <!--SUMMARY EDIT BUTTONS-->
+    <div class="edit-section">
+        <a class="overlay-button edit-button" ng-click="summaryEditShow()"></a>
+    </div>
+    <!--SUMMARY DISPLAY CONTENTS-->
+    <div class="valign-wrapper background-section-header">
+        <img src=".\images\commons\header-summary.png" class="valign"/>
+        <h3 class="valign">Summary</h3>
+    </div>
+    <p class="description">{{summary}}</p>
+</div>

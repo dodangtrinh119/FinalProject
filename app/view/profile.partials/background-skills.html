@@ -1,0 +1,53 @@
+<div ng-controller="skillsController" ng-class="{'edit-activator': editable}" class="editBox-container section-container background-section">
+    <!--SKILLS EDIT BOX-->
+    <div class="editBox" ng-show="showSkillAdd">
+        <p class="editTitle">Skill Name</p>
+        <div style="margin: 6px 0px 12px">
+            <input type="text" style="width: 100%;" ng-model="skillAdd.name">
+        </div>
+        <p class="editTitle">Endorsers</p>
+        <div style="margin: 6px 0px 12px">
+            <input type="number" style="width: 100%;" ng-model="skillAdd.endorsers">
+        </div>
+        <a class="waves-effect waves-light btn edit-confirm" ng-click="skillAddConfirm()">Add</a>
+        <a class="waves-effect waves-light btn edit-cancel" ng-click="showSkillAdd=false">Cancel</a>
+    </div>
+    <!--SKILLS EDIT BUTTONS-->
+    <div class="edit-section">
+        <a class="overlay-button add-button" ng-click="skillAddShow()"></a>
+    </div>
+    <!--SKILLS DISPLAY CONTENTS-->
+    <div class="valign-wrapper background-section-header">
+        <img src=".\images\commons\header-skill.png" class="valign"/>
+        <h3 class="valign">Skills</h3>
+    </div>
+    <div id="skills-section" ng-class="{'edit-activator': editable}">
+        <div>
+            <h5 ng-show="skills.length > 0">Top Skills</h5>
+            <div class="skill-pill" ng-repeat="skill in skills | limitTo: 10">
+                <a class="btn-skill-count waves-effect waves-light btn">
+                    {{skill.endorsers >= 100 ? '99+' : skill.endorsers}}
+                </a>
+                <a class="btn-skill-description"
+                   href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
+                    {{skill.name}}
+                </a>
+                <a class="overlay-button remove-button" ng-click="removeSkill($index)"
+                   style="margin-left: 4px; width: 24px;"></a>
+            </div>
+        </div>
+        <div id="extra-skills" ng-show="skills.length > 10">
+            <h5>{{name[0]}} also knows about...</h5>
+            <div class="section-container skill-pill" ng-repeat="skill in skills"
+                 ng-show="$index >= 10">
+                <a class="btn-skill-count waves-effect waves-light btn">{{skill.endorsers}}</a>
+                <a class="btn-skill-description" style="padding-right: 24px"
+                   href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
+                    {{skill.name}}
+                </a>
+                <a class="overlay-button edit-section remove-button" ng-click="removeSkill($index)"
+                   style="height: 24px; width: 26px;"></a>
+            </div>
+        </div>
+    </div>
+</div>

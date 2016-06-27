@@ -1,4 +1,4 @@
-@import url('button.css');
+@import url('materialize-extended.css');
 .debug1 {
     background: red !important;
 }
@@ -776,7 +776,7 @@ body {
     font-style: normal;
     font-weight: normal;
 }
-.editBox input[type=text]:focus, .editBox input[type=number]:focus {
+.editBox input[type=text]:focus, .editBox input[type=number]:focus, .editBox input[type=email]:focus, .editBox input[type=password]:focus {
     border: 1px solid #4993e5 !important;
     box-shadow: none;
     border-radius: 3px;
@@ -804,4 +804,20 @@ body {
     top: 0px;
     right: -515px;
     width: 500px;
+}
+
+/******************************************************/
+.truncate-large {
+    display: inline-block;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.truncate-small {
+    display: inline-block;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

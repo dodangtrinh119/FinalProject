@@ -1,3 +1,32 @@
-<div>
-    <p>{{user.name}}</p>
+<div id="profile-page">
+    <div id="cover-image" ng-style="{'background-image':'url('+coverImg+')'}" alt="cover-image"/>
+    <div id="profile-content">
+        <!--PROFILE TOP CARD-->
+        <div ng-include src="'view/profile.partials/overview.html'"></div>
+        <!--PROFILE CONTENT-->
+        <div class="row">
+            <!--PROFILE LEFT COLUMN-->
+            <div id="profile" class="col">
+                <!--BACKGROUND CARD-->
+                <div class="card-body">
+                    <h2 class="card-title">Background</h2>
+                    <div id="background-content" class="card-content">
+                        <!--SUMMARY SECTION-->
+                        <div ng-include src="'view/profile.partials/background-summary.html'"></div>
+                        <!--EXPERIENCE SECTION-->
+                        <div ng-include src="'view/profile.partials/background-experience.html'"></div>
+                        <!--VOLUNTEER EXPERIENCE SECTION-->
+                        <div ng-include src="'view/profile.partials/background-volunteer.html'"></div>
+                        <!--SKILLS SECTION-->
+                        <div ng-include src="'view/profile.partials/background-skills.html'"></div>
+                        <!--EDUCATION SECTION-->
+                        <div ng-include src="'view/profile.partials/background-education.html'"></div>
+                    </div>
+                </div>
+            </div>
+            <!--PROFILE RIGHT COLUMN-->
+            <div id="dummy-column" class="col card-body">
+            </div>
+        </div>
+    </div>
 </div>

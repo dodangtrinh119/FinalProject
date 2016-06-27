@@ -1,0 +1,150 @@
+<div id="profile-topcard" ng-controller="overviewController">
+    <!--PROFILE MAIN-->
+    <div class="row profile-main">
+        <div class="profile-image-container col editBox-container edit-activator">
+            <div class="editBox" ng-show="showProfileImageEdit">
+                <p class="editTitle">Profile Image Url</p>
+                <div style="margin: 6px 0px 12px">
+                    <input type="text" style="width: 100%" ng-model="profileImageEdit">
+                </div>
+                <a class="waves-effect waves-light btn edit-confirm" ng-click="profileImageEditConfirm()">Save</a>
+                <a class="waves-effect waves-light btn edit-cancel" ng-click="showProfileImageEdit=false">Cancel</a>
+            </div>
+            <div style="width: 100%; height: 100%; overflow: hidden">
+                <a id="edit-profileImg-btn" class="overlay-button edit-button" ng-click="profileImageEditShow()" style="height: 28px; width: 28px;"></a>
+                <div id="profile-image" ng-style="{'background-image':'url('+profileImage+')'}"></div>
+            </div>
+        </div>
+        <div class="profile-overview col">
+            <!--OVERVIEW TOP SECTION-->
+            <div class="overview-info row">
+                <!--OVERVIEW TOP SECTION > LEFT PART-->
+                <div ng-class="{'edit-activator': editable}" style="display: inline-block; float: left;">
+                    <div>
+                        <div class="editBox-container overview-name">
+                            <span class="truncate-large">{{name[0] + ' ' + name[1]}}</span>
+
+                            <div class="editBox" ng-show="showNameEdit">
+                                <p class="editTitle">Name</p>
+                                <div style="margin: 6px 0px 12px">
+                                    <input type="text" style="width: 48%" ng-model="firstnameEdit"><!--
+                                         --><span style="width: 4%"> </span><!--
+                                         --><input type="text" style="width: 48%" ng-model="lastnameEdit">
+                                </div>
+                                <a class="waves-effect waves-light btn edit-confirm" ng-click="nameEditConfirm()">Save</a>
+                                <a class="waves-effect waves-light btn edit-cancel" ng-click="showNameEdit=false">Cancel</a>
+                            </div>
+                        </div>
+                        <a class="overlay-button edit-button" ng-click="nameEditShow()" style="height: 28px; width: 28px;"></a>
+                    </div>
+
+                    <div style="padding: 5px 0px;">
+                        <div class="editBox-container overview-headline">
+                            <span class="truncate-large">{{headline}}</span>
+
+                            <div class="editBox" ng-show="showHeadlineEdit">
+                                <p class="editTitle">Your professional headline</p>
+                                <div style="margin: 6px 0px 12px">
+                                    <input type="text" style="width: 100%" ng-model="headlineEdit">
+                                </div>
+                                <a class="waves-effect waves-light btn edit-confirm" ng-click="headlineEditConfirm()">Save</a>
+                                <a class="waves-effect waves-light btn edit-cancel" ng-click="showHeadlineEdit=false">Cancel</a>
+                            </div>
+                        </div>
+                        <a class="overlay-button edit-button" ng-click="headlineEditShow()" style="height: 24px; width: 24px; margin-left: 4px;"></a>
+                    </div>
+                    <div>
+                        <div class="editBox-container overview-demographics">
+                            <a href="" class="truncate-small">{{workInfo.area}}</a>
+                            <span ng-show="workInfo.industry">|</span>
+                            <a href="" class="truncate-small">{{workInfo.industry}}</a>
+
+                            <div class="editBox" ng-show="showDemographicEdit">
+                                <p class="editTitle">Location</p>
+                                <div style="margin: 6px 0px 12px">
+                                    <input type="text" style="width: 100%" ng-model="workareaEdit">
+                                </div>
+                                <p class="editTitle">Industry</p>
+                                <div style="margin: 6px 0px 12px">
+                                    <input type="text" style="width: 100%" ng-model="workindustryEdit">
+                                </div>
+                                <a class="waves-effect waves-light btn edit-confirm" ng-click="demographicEditConfirm()">Save</a>
+                                <a class="waves-effect waves-light btn edit-cancel" ng-click="showDemographicEdit=false">Cancel</a>
+                            </div>
+                        </div>
+                        <a class="overlay-button edit-button" ng-click="demographicEditShow()"
+                           style="height: 19px; width: 19px; padding: 2px;"></a>
+                    </div>
+                    <table ng-class="{'edit-activator': editable}" class="overview-summary">
+                        <tr>
+                            <th scope="row"><a ng-click="scrollTo('experience-section')" href="">Current</a></th>
+                            <td>
+                                <a ng-repeat="exp in experience | filter: {endPeriod: 'Present'} | limitTo: 3">
+                                    {{exp.companyName}}<span ng-show="!$last">, </span>
+                                </a>
+                                <a ng-click="scrollTo('experience-section')" href="" class="overlay-button edit-button"
+                                   style="height: 17px; width: 17px; padding: 2px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><a ng-click="scrollTo('experience-section')" href="">Previous</a></th>
+                            <td>
+                                <a ng-repeat="exp in experience | filter: {endPeriod: '!Present'} | limitTo: 3">
+                                    {{exp.companyName}}<span ng-show="!$last">, </span>
+                                </a>
+                                <a ng-click="scrollTo('experience-section')" href="" class="overlay-button edit-button"
+                                   style="height: 17px; width: 17px; padding: 2px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><a ng-click="scrollTo('education-section')" href="">Education</a></th>
+                            <td>
+                                <a ng-repeat="edu in education | limitTo: 1" href="{{edu.schoolWebsite}}">{{edu.schoolName}}</a>
+                                <a ng-click="scrollTo('education-section')" class="overlay-button edit-button"
+                                   style="height: 17px; width: 17px; padding: 2px;"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--OVERVIEW TOP SECTION > RIGHT PART-->
+                <div style="display: inline-block; float: right;">
+                    <img src="./images/commons/influencer.png" ng-show="isInfluencer"/>
+                </div>
+            </div>
+            <!--OVERVIEW BOTTOM SECTION-->
+            <div id="profile-action" class="row">
+                <!--OVERVIEW BOTTOM SECTION > LEFT PART-->
+                <div style="display: inline-block; float: left;">
+                    <div style="display: inline-block">
+                        <a id="follow-btn" class="waves-effect waves-light btn">Follow</a>
+                        <a id="arrow-btn" class="waves-effect waves-light btn"><i class="arrow-down"></i></a>
+                    </div>
+                    <div id="supplemental-action">
+                        <p>Know <span>{{name[0]}}</span>?
+                            <a>Connect</a>
+                        </p>
+                    </div>
+                </div>
+                <!--OVERVIEW BOTTOM SECTION > RIGHT PART-->
+                <div class="member-connections" style="display: inline-block; float: right;">
+                    <strong>{{followers | number}}</strong> followers
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--PROFILE EXTRA-->
+    <div class="row profile-extra">
+        <div class="col link valign-wrapper">
+            <i id="linkA-bullet" class="valign"></i>
+            <a class="link-ref valign" href="{{profileUrl}}">
+                <span>{{profileUrl}}</span>
+            </a>
+        </div>
+        <div class="col right more-info valign-wrapper link">
+            <i id="linkB-bullet" class="valign"></i>
+            <a class="link-ref valign" href="">
+                <span>Contact Info</span>
+            </a>
+        </div>
+    </div>
+</div>

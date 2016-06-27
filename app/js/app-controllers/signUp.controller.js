@@ -18,7 +18,7 @@ appControllers.controller('signUpController', ['$scope', 'authService',
             }
 
             //Create User
-            $scope.userInfo.headline = 'Work in ' + $scope.userInfo.workInfo.industry + ' at ' + $scope.userInfo.workInfo.location;
+            $scope.userInfo.headline = 'Work in ' + $scope.userInfo.workInfo.industry + ' at ' + $scope.userInfo.workInfo.area;
             authService.createUser($scope.account, $scope.password, $scope.userInfo, function (error) {
                 if (error)
                     window.alert(error);

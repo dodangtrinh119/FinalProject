@@ -7,7 +7,7 @@ function UserInfo() {
     this.name = [ "", "" ];
     this.gender = true;
     this.workInfo = {
-        location : "",
+        area : "",
         industry : ""
     };
     this.headline = "";
