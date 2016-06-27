@@ -1,0 +1,83 @@
+/*view-transition*/
+body {
+    position: relative;
+}
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.view-frame.ng-enter {
+    animation: 3s fade-in;
+}
+.view-frame.ng-leave {
+    animation: 1s lightSpeedOut;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
+#nav-context.ng-hide-add {
+    animation: 0.5s lightSpeedOut linear;
+}
+#nav-context.ng-hide-remove {
+    animation:1s flipInX ease;
+}
+.context-modal.ng-hide-add {
+    animation: 0.5s fade-out ease;
+}
+.search-dropdown.ng-hide-add {
+    animation: 0.3s fade-out;
+}
+.search-dropdown.ng-hide-remove {
+    animation: 0.3s fade-in;
+}
+
+
+@keyframes flipInX {
+    0% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        transition-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        transition-timing-function: ease-in;
+    }
+
+    60% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+
+    100% {
+        transform: perspective(400px)
+    }
+}
+@keyframes lightSpeedOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(100%, 0, 0) skewX(30deg);
+        opacity: 0;
+    }
+}
+
+
+

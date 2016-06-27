@@ -5,10 +5,14 @@ appControllers.controller('navBarController', ['$scope', '$location', 'authServi
     function ($scope, $location, authService, dataService) {
 
         $scope.showContext = false;
+        $scope.hideContext = function () {
+            $scope.showContext = false;
+        };
+
         $scope.logOut = function () {
             authService.logoutUser();
         };
-        $scope.backToProfile = function () {
+        $scope.backToHome = function () {
             $location.path('/profile');
         };
     

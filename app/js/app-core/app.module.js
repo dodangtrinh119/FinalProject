@@ -1,7 +1,7 @@
 /**
  * Created by nmtuan on 05-Jun-16.
  */
-var app = angular.module('app', ['ngRoute', 'appControllers', 'appBackend']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'appControllers', 'appBackend']);
 
 app.config(['$locationProvider', '$routeProvider',
     function ($locationProvider, $routeProvider) {
@@ -30,8 +30,9 @@ app.config(['$locationProvider', '$routeProvider',
 app.run(['$rootScope', '$location', 'authService', function ($rootScope, $location, authService) {
     authService.onAuthStateChanged(function (user) {
         $rootScope.$applyAsync(function () {
-            if (user)
+            if (user) {
                 $location.path('/profile').replace();
+            }
             else
                 $location.path('/sign-in').replace();
         });
@@ -39,7 +40,7 @@ app.run(['$rootScope', '$location', 'authService', function ($rootScope, $locati
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
         if (authService.getCurrentUser()) {
-            if ($location.path() == '/sign-in' || $location.path() == '/landing')
+            if (!$location.path().includes('/profile'))
                 event.preventDefault();
         }
         else if (!current.includes('/profile') && $location.path().includes('/profile'))

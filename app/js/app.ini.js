@@ -12,6 +12,7 @@ $.loadScript = function (url, callback) {
 };
 
 //Load managed scripts
+$.loadScript('js/app.utils.js');
 $.loadScript('js/models/models.ini.js');
 $.loadScript('js/app-core/app.module.js');
 $.loadScript('js/app-controllers/controllers.module.js');

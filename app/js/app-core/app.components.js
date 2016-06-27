@@ -24,3 +24,8 @@ app.component('navBar', {
     templateUrl: 'view/nav-bar.html',
     controller: 'navBarController'
 });
+
+app.component('searchBox', {
+    templateUrl: 'view/search-box.html',
+    controller: 'searchController'
+});

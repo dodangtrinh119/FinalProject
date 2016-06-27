@@ -6,6 +6,7 @@ $.loadScript('js/app-controllers/signIn.controller.js');
 $.loadScript('js/app-controllers/signUp.controller.js');
 
 $.loadScript('js/app-controllers/navBar.controller.js');
+$.loadScript('js/app-controllers/search.controller.js');
 
 $.loadScript('js/app-controllers/profile.controller.js');
 $.loadScript('js/app-controllers/profile-overview.controller.js');

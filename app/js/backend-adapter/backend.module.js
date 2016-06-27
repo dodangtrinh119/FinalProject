@@ -44,7 +44,7 @@ appBackend.factory('dataService', function () {
 
 
 //Register auth service
-appBackend.factory('authService', ['dataService', function (dataService) {
+appBackend.factory('authService', ['$location', 'dataService', function ($location, dataService) {
     var authLogic = {};
 
     authLogic.onAuthStateChanged = function (callback) {
@@ -54,7 +54,7 @@ appBackend.factory('authService', ['dataService', function (dataService) {
     authLogic.createUser = function (email, password, userInfo, errorCallback) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(function (user) {
-                userInfo.profileUrl = "MyDomain/index.html#!/profile/" + user.uid;
+                userInfo.profileUrl = $location.host() + "/index.html#!/profile/" + user.uid;
                 dataService.set('users/' + user.uid, userInfo);
             })
             .catch(errorCallback);
@@ -62,6 +62,27 @@ appBackend.factory('authService', ['dataService', function (dataService) {
 
     authLogic.loginUser = function (account, password, errorCallback) {
         firebase.auth().signInWithEmailAndPassword(account, password).catch(errorCallback);
+    };
+    
+    authLogic.loginWithGoogle = function (errorCallback) {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+
+            var user = result.user;
+
+            dataService.exists('users/' + user.uid, function (existed) {
+                if (!existed) {
+                    var userInfo = new UserInfo();
+                    if (user.displayName) {
+                        userInfo.name[0] = user.displayName.substr(0, user.displayName.indexOf(' '));
+                        userInfo.name[1] = user.displayName.substr(user.displayName.indexOf(' ') + 1);
+                    }
+                    if (user.photoURL)
+                        userInfo.profileImg = user.photoURL;
+                    dataService.set('users/' + user.uid, userInfo);
+                }
+            });
+        }).catch(errorCallback);
     };
 
     authLogic.logoutUser = function () {

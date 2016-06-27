@@ -1,15 +1,22 @@
 <div class="center-align" style="margin-top: 150px">
     <h1>SIGN IN</h1>
-    <form class="editBox" ng-submit="signIn()" style="position: static; display: inline-block; margin: 0px; width: 226px">
+    <form class="form" ng-submit="signIn()">
         <div>
             <p class="editTitle">Account</p>
-            <input type="text" ng-model="account" style="margin: 6px 0px 12px; width: 100%" required>
+            <input type="text" ng-model="account" style="margin: 6px 0px 12px; width: 100%" ng-disabled="disabled" required>
             <p class="editTitle">Password</p>
-            <input type="password" ng-model="password" style="margin: 6px 0px 12px; width: 100%" required>
+            <input type="password" ng-model="password" style="margin: 6px 0px 12px; width: 100%" ng-disabled="disabled" required>
         </div>
         <div>
-            <button class="waves-effect waves-light btn" type="submit" style="padding: 0px; width: 49%; display: inline-block;">Sign In</button>
-            <button class="waves-effect waves-light btn edit-cancel" ng-click="signUp()" style="padding: 0px; width: 49%; display: inline-block;">Sign Up</button>
+            <button class="waves-effect waves-light btn" type="submit" ng-disabled="disabled" style="padding: 0px; width: 45%;">Sign In</button>
+            <button class="waves-effect waves-light btn edit-cancel" type="button" ng-click="signUp()" ng-disabled="disabled" style="padding: 0px; width: 45%;">Sign Up</button>
+        </div>
+
+        <br>
+        <p class="editTitle center-align">Or sign in with</p>
+        <div style="padding-top: 8px">
+            <button class="waves-effect waves-light btn google-btn" type="button" ng-disabled="disabled" ng-click="googleSignIn()" style="padding: 0px; width: 49%;">Google</button>
+            <button class="waves-effect waves-light btn facebook-btn" type="button" ng-disabled="disabled" ng-click="facebookSignIn()" style="padding: 0px; width: 49%;">Facebook</button>
         </div>
     </form>
 </div>

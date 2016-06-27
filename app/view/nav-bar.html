@@ -1,20 +1,28 @@
-<div id="nav-context" ng-show="showContext">
-    <button style="width: 100%" class="waves-effect waves-light btn" ng-click="logOut()">Log Out</button>
-</div>
-<div class="nav-bar valign-wrapper">
-    <div class="valign" style="width: 100%;  overflow: hidden">
-        <div style="display: inline-block; float: left;">
-            <h5 style="color: white">Project ME</h5>
-        </div>
-        <div class="valign-wrapper" style="position: relative; float: right">
-            <i class="arrow-down-large valign" ng-style="showContext && {'border-color': '#0d47a1'} || {'border-color': 'white'}" style="cursor: pointer" ng-click="showContext = !showContext"></i>
-        </div>
-        <div id="user-chip" style="float: right; margin-right: 8px" ng-click="backToProfile()">
-            <div class="chip" style="background-color: transparent; padding-right: 0px; padding-bottom: 0px">
-                <img ng-src="{{userImage}}">
-                <span style="color: white">{{userName[0] + ' ' + userName[1] | limitTo: 20 }}{{userName[0].length + userName[1].length > 20 ? '...' : ''}}
-                </span>
-            </div>
-        </div>
+<div class="context-modal" ng-show="showContext">
+    <div class="context-modal-overlay" ng-click="hideContext()"></div>
+    <div id="nav-context" class="ng-hide" ng-show="showContext">
+        <button style="width: 100%" class="waves-effect waves-light btn" ng-click="logOut()">Log Out</button>
     </div>
- </div>
+</div>
+
+<div class="nav-bar">
+    <div class="row" style="background-color: #0288d1; width: 100%; height: 48px; margin: 0; white-space: nowrap;">
+        <div class="col m10 s8 valign-wrapper" style="height: 100%;">
+            <image width="40" height="40" src="./images/logo.png" class="valign"></image>
+            <span class="valign" style="color: white; font-weight: bold; font-size: 18px;">JUPITER</span>
+
+            <search-box class="valign" style="margin-left: 15%; position: relative; width: 100%"></search-box>
+        </div>
+        <div class="col m2 s4" style="text-align: right; height: 100%;">
+            <div>
+                <div ng-click="backToHome()" id="nav-home">
+                    <span style="color: #BBDEFB; font-weight: bold;">Home</span>
+                </div>
+                <img ng-click="showContext = !showContext" style="border-radius: 50%; width: 38px; cursor: pointer; margin: 5px 24px 5px 14px"
+                     ng-src="{{userImage}}">
+            </div>
+
+        </div>
+        <div></div>
+    </div>
+</div>
