@@ -27,5 +27,8 @@ app.component('navBar', {
 
 app.component('searchBox', {
     templateUrl: 'view/search-box.html',
-    controller: 'searchController'
+    controller: 'searchController',
+    bindings: {
+        currentUser: '<'
+    }
 });

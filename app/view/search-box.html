@@ -1,10 +1,10 @@
 <div class="search-box">
-    <input class="search-input" type="text"
+    <input type="text" ng-change="onQueryChange()"
            ng-blur="showDropdown = false" ng-focus="showDropdown = true"
            placeholder="Find others..." ng-model="query">
     <div class="search-dropdown" ng-show="showDropdown">
         <div ng-repeat="user in users">
-
+            HeHeHe
         </div>
     </div>
 </div>

@@ -17,17 +17,23 @@ appBackend.config(function () {
 appBackend.factory('dataService', function () {
     var dataLogic = {};
 
-    dataLogic.CreateDataRef = function (refUrl) {
-        return new DataRef(refUrl);
+    dataLogic.createDataRef = function (firebaseRef) {
+        return new DataRef(firebaseRef);
+    };
+    dataLogic.createFirebaseRef = function (refUrl) {
+        return firebase.database().ref(refUrl);
+    };
+    
+    dataLogic.bindQuery = function () {
+        
     };
 
-    dataLogic.bind = function (refUrl, callback) {
-        var ref = firebase.database().ref(refUrl);
-        return ref.on('value', callback);
+    dataLogic.bind = function (firebaseRef, callback) {
+        firebaseRef.on('value', callback);
+        return callback;
     };
-    dataLogic.unbind = function (refUrl, listener) {
-        var ref = firebase.database().ref(refUrl);
-        ref.off('value', listener);
+    dataLogic.unbind = function (firebaseRef, listener) {
+        firebaseRef.off('value', listener);
     };
     dataLogic.set = function (refUrl, value) {
         var ref = firebase.database().ref(refUrl);
@@ -74,8 +80,7 @@ appBackend.factory('authService', ['$location', 'dataService', function ($locati
                 if (!existed) {
                     var userInfo = new UserInfo();
                     if (user.displayName) {
-                        userInfo.name[0] = user.displayName.substr(0, user.displayName.indexOf(' '));
-                        userInfo.name[1] = user.displayName.substr(user.displayName.indexOf(' ') + 1);
+                        userInfo.name = Utils.splitsStringToName(user.displayName);
                     }
                     if (user.photoURL)
                         userInfo.profileImg = user.photoURL;

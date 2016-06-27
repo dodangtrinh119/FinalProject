@@ -11,14 +11,17 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
             $location.hash(old);
         };
 
-        var listenerRef = null;
+        var firebaseRef = null, 
+            listenerRef = null;
+        
         var hasParam = ($routeParams.profileId)? true : false;
         var currentUser = authService.getCurrentUser();
         var loadData = function (userId) {
-            listenerRef = dataService.bind('users/' + userId, function (snapshot) {
+            firebaseRef = dataService.createFirebaseRef('users/' + userId);
+            listenerRef = dataService.bind(firebaseRef, function (snapshot) {
                 if (snapshot.exists()) {
 
-                    $scope.profile = dataService.CreateDataRef(snapshot.ref);
+                    $scope.profile = dataService.createDataRef(snapshot.ref);
 
                     var data = snapshot.val();
 
@@ -82,7 +85,7 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
                     $scope.$applyAsync();
                 }
                 else if (hasParam) {
-                    dataService.unbind('users/' + userId, listenerRef);
+                    dataService.unbind(firebaseRef, listenerRef);
                     $location.path('/profile');
                     $scope.$applyAsync();
                 }

@@ -16,9 +16,10 @@ appControllers.controller('navBarController', ['$scope', '$location', 'authServi
             $location.path('/profile');
         };
     
-        var currentUser = authService.getCurrentUser();
+        $scope.currentUser = authService.getCurrentUser();
         var loadData = function (userId) {
-            dataService.bind('users/' + userId, function (snapshot) {
+            var firebaseRef = dataService.createFirebaseRef('users/' + userId);
+            dataService.bind(firebaseRef, function (snapshot) {
                 if (snapshot.exists()) {
                     var data = snapshot.val();
                     $scope.userName = data.name;
@@ -29,12 +30,14 @@ appControllers.controller('navBarController', ['$scope', '$location', 'authServi
             });
         };
     
-        if (currentUser)
-            loadData(currentUser.uid)
+        if ($scope.currentUser)
+            loadData($scope.currentUser.uid)
         else {
             authService.onAuthStateChanged(function (user) {
-                if (user)
+                if (user) {
+                    $scope.currentUser = user;
                     loadData(user.uid);
+                }
             })
         }
     }]);
