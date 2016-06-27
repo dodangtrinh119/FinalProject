@@ -101,7 +101,7 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
         else {
             $scope.editable = true;
             if (currentUser)
-                loadData(authService.getCurrentUser().uid)
+                loadData(currentUser.uid)
             else {
                 authService.onAuthStateChanged(function (user) {
                     if (user)

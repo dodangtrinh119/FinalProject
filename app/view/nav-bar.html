@@ -1,18 +1,18 @@
+<div id="nav-context" ng-show="showContext">
+    <button style="width: 100%" class="waves-effect waves-light btn" ng-click="logOut()">Log Out</button>
+</div>
 <div class="nav-bar valign-wrapper">
     <div class="valign" style="width: 100%;  overflow: hidden">
         <div style="display: inline-block; float: left;">
             <h5 style="color: white">Project ME</h5>
         </div>
         <div class="valign-wrapper" style="position: relative; float: right">
-            <i class="arrow-down-large valign" ></i>
-            <div id="nav-context" class="editBox" ng-show="showContext" style="position: absolute; top: 15px; right: 0px; width: 200px; z-index: 20">
-                HeHeHe
-            </div>
+            <i class="arrow-down-large valign" ng-style="showContext && {'border-color': '#0d47a1'} || {'border-color': 'white'}" style="cursor: pointer" ng-click="showContext = !showContext"></i>
         </div>
-        <div id="user-chip" style="float: right">
+        <div id="user-chip" style="float: right; margin-right: 8px" ng-click="backToProfile()">
             <div class="chip" style="background-color: transparent; padding-right: 0px; padding-bottom: 0px">
-                <img ng-src="{{$ctrl.userImage}}">
-                <span style="color: white">{{$ctrl.userName[0] + ' ' + $ctrl.userName[1] | limitTo: 20 }}{{$ctrl.userName[0].length + $ctrl.userName[1].length > 20 ? '...' : ''}}
+                <img ng-src="{{userImage}}">
+                <span style="color: white">{{userName[0] + ' ' + userName[1] | limitTo: 20 }}{{userName[0].length + userName[1].length > 20 ? '...' : ''}}
                 </span>
             </div>
         </div>

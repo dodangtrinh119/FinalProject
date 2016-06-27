@@ -690,7 +690,6 @@ body {
     background: white;
     position: absolute;
     z-index: 10;
-    border-color: #ededed #c9c9c9 #a4a4a4;
     border: 1px solid #ccc;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     top: -15px;
@@ -769,7 +768,6 @@ body {
     border-bottom: none;
     border-radius: 3px;
     border: 1px solid #ccc !important;
-    border-color: #ededed #c9c9c9 #a4a4a4;
 
     color: #333;
     font-size: 13px;
@@ -838,12 +836,13 @@ body {
     height: 48px;
     z-index: 10;
     background-color: #0288d1;
+    overflow: visible;
 }
 .arrow-down-large {
     width: 0;
     height: 0;
-    border-left: 16px solid transparent;
-    border-right: 16px solid transparent;
+    border-left: 16px solid transparent !important;
+    border-right: 16px solid transparent !important;
 
     border-top: 16px solid white;
     display: inline-block;
@@ -861,5 +860,12 @@ body {
 }
 #nav-context {
     position: absolute;
+    padding: 8px 15px 15px 15px;
     z-index: 20;
+    background-color: white;
+    border: 1px solid #ccc;
+    top: 24px;
+    right: 0px;
+    width: 150px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
