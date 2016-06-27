@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dfaf8654-47c4-4dc7-8bcd-f4a3e565d326" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/nav-bar.css" afterPath="$PROJECT_DIR$/app/css/nav-bar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app-controllers/profile-overview.controller.js" afterPath="$PROJECT_DIR$/app/js/app-controllers/profile-overview.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app-controllers/search.controller.js" afterPath="$PROJECT_DIR$/app/js/app-controllers/search.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app-controllers/signUp.controller.js" afterPath="$PROJECT_DIR$/app/js/app-controllers/signUp.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app.utils.js" afterPath="$PROJECT_DIR$/app/js/app.utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/backend-adapter/backend.module.js" afterPath="$PROJECT_DIR$/app/js/backend-adapter/backend.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/models/user-info.model.js" afterPath="$PROJECT_DIR$/app/js/models/user-info.model.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/search-box.html" afterPath="$PROJECT_DIR$/app/view/search-box.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/view/sign-up.html" afterPath="$PROJECT_DIR$/app/view/sign-up.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.rules.json" afterPath="$PROJECT_DIR$/database.rules.json" />
     </list>
     <ignored path="ProjectME.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,18 +40,40 @@
       <file leaf-file-name="search-box.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/view/search-box.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="95" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="95" />
+            <state relative-caret-position="102">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nav-bar.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/css/nav-bar.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nav-bar.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/css/nav-bar.css">
+      <file leaf-file-name="database.rules.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database.rules.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+            <state relative-caret-position="119">
+              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-info.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/js/models/user-info.model.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -100,16 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
               <caret line="10" column="93" selection-start-line="10" selection-start-column="71" selection-end-line="10" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="materialize-extended.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/css/materialize-extended.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -189,10 +193,10 @@
         <option value="$PROJECT_DIR$/app/js/app-controllers/signUp.controller.js" />
         <option value="$PROJECT_DIR$/app/view/sign-up.html" />
         <option value="$PROJECT_DIR$/app/js/app.utils.js" />
-        <option value="$PROJECT_DIR$/app/view/search-box.html" />
-        <option value="$PROJECT_DIR$/app/css/nav-bar.css" />
         <option value="$PROJECT_DIR$/database.rules.json" />
         <option value="$PROJECT_DIR$/app/js/app-controllers/search.controller.js" />
+        <option value="$PROJECT_DIR$/app/view/search-box.html" />
+        <option value="$PROJECT_DIR$/app/css/nav-bar.css" />
       </list>
     </option>
   </component>
@@ -550,12 +554,12 @@
       <workItem from="1465326124710" duration="18152000" />
       <workItem from="1465362142561" duration="16981000" />
       <workItem from="1465399364713" duration="26242000" />
-      <workItem from="1465461877522" duration="36159000" />
+      <workItem from="1465461877522" duration="37616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147664000" />
+    <option name="totallyTimeSpent" value="149121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -842,14 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/models/user-info.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/backend-adapter/backend.module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -955,10 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.rules.json">
+    <entry file="file://$PROJECT_DIR$/app/js/models/user-info.model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="119">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -975,16 +971,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/view/search-box.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="95" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="95" />
-          <folding />
+        <state relative-caret-position="102">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/css/nav-bar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="84" column="20" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
+        <state relative-caret-position="244">
+          <caret line="80" column="25" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.rules.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
       </provider>

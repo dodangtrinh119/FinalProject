@@ -14,7 +14,7 @@ function UserInfo() {
 
     this.profileUrl = "";
     this.profileImg = "images/profile-default-man.png";
-    this.coverImg = "images/cover-default.png";
+    this.coverImg = "images/cover-default.jpg";
     this.summary = "";
     this.caredCauses = [];
     this.education = [];

@@ -77,10 +77,25 @@
 }
 
 .search-item {
-    padding: 6px;
+    overflow: hidden;
+    margin: 0 !important;
+    padding: 6px 12px 6px 12px !important;
 }
 .search-item:hover {
     color: white;
     background-color: #3B5998;
     cursor: pointer;
+}
+.search-item-header {
+    margin: 0; padding: 0;
+    font-size: 18px;
+    line-height: 20px;
+    color: #66696a;
+    font-weight: bold;
+}
+.search-item-subHeader {
+    margin: 0; padding: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999;
 }

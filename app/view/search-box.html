@@ -3,8 +3,15 @@
            ng-blur="showDropdown = false" ng-focus="showDropdown = true"
            placeholder="Find others..." ng-model="query">
     <div class="search-dropdown" ng-show="showDropdown">
-        <div class="search-item" ng-repeat="profile in profiles" ng-click="profileClick($index)">
-            {{profile}}
+        <div class="search-item row" ng-repeat="profile in profiles" ng-click="profileClick($index)">
+            <div class="col" style="padding: 0">
+                <img ng-src="{{users[profile].profileImg}}" width="48" height="48">
+            </div>
+            <div class="col">
+                <p class="search-item-header">{{users[profile].displayName}}</p>
+                <p class="search-item-subHeader">{{users[profile].headline}}</p>
+            </div>
+
         </div>
     </div>
 </div>
