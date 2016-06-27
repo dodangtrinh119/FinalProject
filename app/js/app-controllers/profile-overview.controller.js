@@ -7,7 +7,7 @@ appControllers.controller('overviewController', ['$scope', 'dataService',
         //Edit Profile Image
         $scope.showProfileImageEdit = false;
         $scope.profileImageEditShow = function () {
-            $scope.profileImageEdit = $scope.user.profileImg;
+            $scope.profileImageEdit = $scope.profileImage;
             $scope.showProfileImageEdit = true;
         };
         $scope.profileImageEditConfirm = function () {

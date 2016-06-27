@@ -21,6 +21,7 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
                     $scope.profile = dataService.CreateDataRef(snapshot.ref);
 
                     var data = snapshot.val();
+
                     $scope.coverImage = data.coverImg;
                     $scope.profileImage = data.profileImg;
                     $scope.name = data.name;
@@ -37,6 +38,29 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
 
                     $scope.experience = (data.experience != undefined)? data.experience : [];
                     $scope.showExperienceEdit = new Array($scope.experience.length).fill(false);
+                    $scope.experience.forEach(function (exp) {
+                        if (exp.startPeriod)
+                            exp.startPeriod = new Date(exp.startPeriod);
+                        else
+                            exp.startPeriod = new Date();
+
+                        if (exp.endPeriod == null) {
+                            exp.duration = "";
+                            return;
+                        }
+                        exp.endPeriod = new Date(exp.endPeriod);
+
+                        var yearDiff = exp.endPeriod.getYear() - exp.startPeriod.getYear();
+                        var monthDiff = exp.endPeriod.getMonth() - exp.startPeriod.getMonth();
+                        if (monthDiff < 0) {
+                            yearDiff -= 1;
+                            monthDiff += 12;
+                        }
+
+                        exp.duration = "";
+                        if (yearDiff != 0) exp.duration += yearDiff + " years";
+                        if (monthDiff != 0) exp.duration += " " + monthDiff + " months";
+                    });
 
                     $scope.caredCauses = (data.caredCauses != undefined)? data.caredCauses : [];
                     $scope.supportedOrganizations = (data.supportedOrganizations != undefined)? data.supportedOrganizations : [];
@@ -45,12 +69,22 @@ appControllers.controller('profileController', ['$scope', '$location', '$anchorS
 
                     $scope.education = (data.education != undefined)? data.education : [];
                     $scope.showEducationEdit = new Array($scope.education.length).fill(false);
-                    $scope.$apply();
+                    $scope.education.forEach(function (edu) {
+                        if (edu.startPeriod)
+                            edu.startPeriod = new Date(edu.startPeriod);
+                        else
+                            edu.startPeriod = new Date();
+
+                        if (edu.endPeriod)
+                            edu.endPeriod = new Date(edu.endPeriod);
+                    });
+
+                    $scope.$applyAsync();
                 }
                 else if (hasParam) {
                     dataService.unbind('users/' + userId, listenerRef);
                     $location.path('/profile');
-                    $scope.$apply();
+                    $scope.$applyAsync();
                 }
             })
         };

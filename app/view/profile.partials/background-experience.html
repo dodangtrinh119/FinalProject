@@ -25,12 +25,9 @@
 
                 <p class="editTitle">Period</p>
                 <div style="margin: 6px 0px 0px">
-                    <input type="text" style="width: 49%" ng-model="experienceAdd.startPeriod"><!--
-                                         --><span style="width: 2%"> </span><!--
-                                         --><input type="text" style="width: 49%" ng-model="experienceAdd.endPeriod">
-                </div>
-                <div style="margin: 6px 0px 12px">
-                    <input type="text" style="width: 100%" ng-model="experienceAdd.duration">
+                    <input type="date" style="width: 49%" max="{{experienceAdd.endPeriod | date:'yyyy-MM-dd'}}" ng-model="experienceAdd.startPeriod"><!--
+                 --><span style="width: 2%"> </span><!--
+                 --><input type="date" style="width: 49%" max="{{experienceAdd.startPeriod | date:'yyyy-MM-dd'}}" ng-model="experienceAdd.endPeriod">
                 </div>
 
                 <p class="editTitle">Location</p>
@@ -86,12 +83,9 @@
 
                         <p class="editTitle">Period</p>
                         <div style="margin: 6px 0px 0px">
-                            <input type="text" style="width: 49%" ng-model="experienceEdit.startPeriod"><!--
-                                         --><span style="width: 2%"> </span><!--
-                                         --><input type="text" style="width: 49%" ng-model="experienceEdit.endPeriod">
-                        </div>
-                        <div style="margin: 6px 0px 12px">
-                            <input type="text" style="width: 100%" ng-model="experienceEdit.duration">
+                            <input type="date" style="width: 49%" max="{{experienceEdit.endPeriod | date:'yyyy-MM-dd'}}" ng-model="experienceEdit.startPeriod"><!--
+                         --><span style="width: 2%"> </span><!--
+                         --><input type="date" style="width: 49%" min="{{experienceEdit.startPeriod | date:'yyyy-MM-dd'}}" ng-model="experienceEdit.endPeriod">
                         </div>
 
                         <p class="editTitle">Location</p>
@@ -124,7 +118,8 @@
                 <a href="{{exp.companyUrl}}" class="info-subtitle">
                     <span class="truncate-large">{{exp.companyName}}</span>
                 </a>
-                <span class="info-date truncate-large">{{exp.startPeriod}} – {{exp.endPeriod}}
+                <span class="info-date truncate-large">
+                    {{exp.startPeriod | date: "MM/yyyy"}} – <span ng-show="exp.endPeriod">{{exp.endPeriod | date: "MM/yyyy"}}</span><span ng-hide="exp.endPeriod">Present</span>
                     <span ng-show="exp.duration != ''">({{exp.duration}})</span>
                     <span ng-show="exp.location != ''"> | {{exp.location}}</span>
                 </span>

@@ -1,0 +1,20 @@
+<div class="nav-bar valign-wrapper">
+    <div class="valign" style="width: 100%;  overflow: hidden">
+        <div style="display: inline-block; float: left;">
+            <h5 style="color: white">Project ME</h5>
+        </div>
+        <div class="valign-wrapper" style="position: relative; float: right">
+            <i class="arrow-down-large valign" ></i>
+            <div id="nav-context" class="editBox" ng-show="showContext" style="position: absolute; top: 15px; right: 0px; width: 200px; z-index: 20">
+                HeHeHe
+            </div>
+        </div>
+        <div id="user-chip" style="float: right">
+            <div class="chip" style="background-color: transparent; padding-right: 0px; padding-bottom: 0px">
+                <img ng-src="{{$ctrl.userImage}}">
+                <span style="color: white">{{$ctrl.userName[0] + ' ' + $ctrl.userName[1] | limitTo: 20 }}{{$ctrl.userName[0].length + $ctrl.userName[1].length > 20 ? '...' : ''}}
+                </span>
+            </div>
+        </div>
+    </div>
+ </div>

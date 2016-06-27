@@ -30,7 +30,7 @@
                 </a>
                 <a class="btn-skill-description"
                    href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
-                    {{skill.name}}
+                    <span class="truncate-large">{{skill.name}}</span>
                 </a>
                 <a class="overlay-button remove-button" ng-click="removeSkill($index)"
                    style="margin-left: 4px; width: 24px;"></a>
@@ -43,7 +43,7 @@
                 <a class="btn-skill-count waves-effect waves-light btn">{{skill.endorsers}}</a>
                 <a class="btn-skill-description" style="padding-right: 24px"
                    href="https://www.linkedin.com/topic/{{skill.name}}?trk=mprofile_topic">
-                    {{skill.name}}
+                    <span class="truncate-small">{{skill.name}}</span>
                 </a>
                 <a class="overlay-button edit-section remove-button" ng-click="removeSkill($index)"
                    style="height: 24px; width: 26px;"></a>

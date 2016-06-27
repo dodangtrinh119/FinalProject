@@ -1,7 +1,7 @@
 <div id="profile-topcard" ng-controller="overviewController">
     <!--PROFILE MAIN-->
     <div class="row profile-main">
-        <div class="profile-image-container col editBox-container edit-activator">
+        <div class="profile-image-container col editBox-container" ng-class="{'edit-activator': editable}">
             <div class="editBox" ng-show="showProfileImageEdit">
                 <p class="editTitle">Profile Image Url</p>
                 <div style="margin: 6px 0px 12px">
@@ -55,9 +55,9 @@
                     </div>
                     <div>
                         <div class="editBox-container overview-demographics">
-                            <a href="" class="truncate-small">{{workInfo.area}}</a>
-                            <span ng-show="workInfo.industry">|</span>
-                            <a href="" class="truncate-small">{{workInfo.industry}}</a>
+                            <a href="" class="truncate-small" style="vertical-align: middle">{{workInfo.area}}</a>
+                            <span ng-show="workInfo.industry" style="vertical-align: middle">|</span>
+                            <a href="" class="truncate-small" style="vertical-align: middle">{{workInfo.industry}}</a>
 
                             <div class="editBox" ng-show="showDemographicEdit">
                                 <p class="editTitle">Location</p>
@@ -79,8 +79,8 @@
                         <tr>
                             <th scope="row"><a ng-click="scrollTo('experience-section')" href="">Current</a></th>
                             <td>
-                                <a ng-repeat="exp in experience | filter: {endPeriod: 'Present'} | limitTo: 3">
-                                    {{exp.companyName}}<span ng-show="!$last">, </span>
+                                <a ng-repeat="exp in experience | filter: {endPeriod: '!'} | limitTo: 3">
+                                    <span class="truncate-tiny" style="vertical-align: middle">{{exp.companyName}}</span><span ng-show="!$last">, </span>
                                 </a>
                                 <a ng-click="scrollTo('experience-section')" href="" class="overlay-button edit-button"
                                    style="height: 17px; width: 17px; padding: 2px;"/>
@@ -89,8 +89,8 @@
                         <tr>
                             <th scope="row"><a ng-click="scrollTo('experience-section')" href="">Previous</a></th>
                             <td>
-                                <a ng-repeat="exp in experience | filter: {endPeriod: '!Present'} | limitTo: 3">
-                                    {{exp.companyName}}<span ng-show="!$last">, </span>
+                                <a ng-repeat="exp in experience | filter: {endPeriod: ''} | limitTo: 3">
+                                    <span class="truncate-tiny" style="vertical-align: middle">{{exp.companyName}}</span><span ng-show="!$last">, </span>
                                 </a>
                                 <a ng-click="scrollTo('experience-section')" href="" class="overlay-button edit-button"
                                    style="height: 17px; width: 17px; padding: 2px;"/>

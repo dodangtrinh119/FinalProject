@@ -54,6 +54,7 @@ appBackend.factory('authService', ['dataService', function (dataService) {
     authLogic.createUser = function (email, password, userInfo, errorCallback) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(function (user) {
+                userInfo.profileUrl = "MyDomain/index.html#!/profile/" + user.uid;
                 dataService.set('users/' + user.uid, userInfo);
             })
             .catch(errorCallback);

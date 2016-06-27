@@ -14,24 +14,39 @@ appControllers.controller('experienceController', ['$scope',
         $scope.experienceAddShow = function () {
             $scope.experienceAdd = {
                 companyName: '', companyUrl: '', companyLogo: '', title: '',
-                startPeriod: 'From', endPeriod: 'To', duration: 'Duration', location: '',
+                startPeriod: new Date(), endPeriod: new Date(), duration: 'Duration', location: '',
                 description: ''
             };
+            $scope.experienceAdd.endPeriod.setDate($scope.experienceAdd.endPeriod.getDate() + 1);
             $scope.showExperienceAdd = true;
         };
         $scope.experienceAddConfirm = function () {
             $scope.experience.push($scope.experienceAdd);
-            $scope.profile.setRemoteProperty('experience', angular.copy($scope.experience));
+            var cloneExp = angular.copy($scope.experience);
+            cloneExp.forEach(function (exp) {
+                if (exp.startPeriod)
+                    exp.startPeriod = exp.startPeriod.toDateString();
+                if (exp.endPeriod)
+                    exp.endPeriod = exp.endPeriod.toDateString();
+            });
+            $scope.profile.setRemoteProperty('experience', cloneExp);
             $scope.showExperienceAdd = false;
         };
 
         //Edit Experience
         $scope.experienceEditShow = function (index) {
-            $scope.experienceEdit = JSON.parse(JSON.stringify($scope.experience[index]));
+            $scope.experienceEdit = angular.copy($scope.experience[index]);
             $scope.showExperienceEdit[index] = true;
         };
         $scope.experienceEditConfirm = function (index) {
             $scope.experience[index] = $scope.experienceEdit;
-            $scope.profile.setRemoteProperty('experience', angular.copy($scope.experience));
+            var cloneExp = angular.copy($scope.experience);
+            cloneExp.forEach(function (exp) {
+                if (exp.startPeriod != null)
+                    exp.startPeriod = exp.startPeriod.toDateString();
+                if (exp.endPeriod != null)
+                    exp.endPeriod = exp.endPeriod.toDateString();
+            });
+            $scope.profile.setRemoteProperty('experience', cloneExp);
         };
     }]);

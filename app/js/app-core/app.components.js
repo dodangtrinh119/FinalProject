@@ -18,3 +18,14 @@ app.component('profile', {
     templateUrl: 'view/profile.html',
     controller: 'profileController',
 });
+
+//Navbar
+app.component('navBar', {
+    templateUrl: 'view/nav-bar.html',
+    controller: 'navBarController',
+    bindings: {
+        userImage: '=',
+        userName: '<',
+        userProfile: '<'
+    }
+});

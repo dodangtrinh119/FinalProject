@@ -1,4 +1,4 @@
-<div class="background-section">
+    <div class="background-section">
     <div class="valign-wrapper background-section-header">
         <img src=".\images\commons\header-volunteerExperience.png" class="valign"/>
         <h3 class="valign">Volunteer Experience & Causes</h3>
@@ -12,7 +12,7 @@
             <div class="editBox" ng-show="showCauseAdd">
                 <p class="editTitle">Cause that you care</p>
                 <div style="margin: 6px 0px 12px">
-                    <input type="text" style="width: 100%;" ng-model="causeAdd">
+                    <textarea type="text" style="width: 100%; height: 100px;" ng-model="causeAdd"></textarea>
                 </div>
                 <a class="waves-effect waves-light btn edit-confirm" ng-click="causeAddConfirm()">Add</a>
                 <a class="waves-effect waves-light btn edit-cancel" ng-click="showCauseAdd=false">Cancel</a>
@@ -24,9 +24,9 @@
             <!--CARED CAUSES DISPLAY CONTENTS-->
             <h4>Causes {{name[0]}} cares about</h4>
             <ul class="browser-default">
-                <li ng-repeat="c in caredCauses">
+                <li ng-repeat="c in caredCauses" style="word-break: break-all">
                     <span>{{c}}</span><!--
-                                         --><a class="overlay-button remove-button" ng-click="removeCause($index)"
+                 --><a class="overlay-button remove-button" ng-click="removeCause($index)"
                                                style="margin-left: 4px; height: 16px; width: 16px;"></a>
                 </li>
             </ul>
@@ -55,7 +55,7 @@
             <!--SUPPORTED ORGANIZATIONS DISPLAY CONTENTS-->
             <h4>Organizations {{name[0]}} supports</h4>
             <ul class="browser-default" style="margin-bottom: 0px !important;">
-                <li ng-repeat="org in supportedOrganizations">
+                <li ng-repeat="org in supportedOrganizations" style="word-break: break-all">
                     <a href="{{org.orgWebsite}}">
                         <span>{{org.orgName}}</span><!--
                      --><a class="overlay-button remove-button" ng-click="removeOrganization($index)" style="margin-left: 4px; height: 16px; width: 16px;"></a>

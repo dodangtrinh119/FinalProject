@@ -29,7 +29,7 @@ app.config(['$locationProvider', '$routeProvider',
 
 app.run(['$rootScope', '$location', 'authService', function ($rootScope, $location, authService) {
     authService.onAuthStateChanged(function (user) {
-        $rootScope.$apply(function () {
+        $rootScope.$applyAsync(function () {
             if (user)
                 $location.path('/profile').replace();
             else

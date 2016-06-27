@@ -1,7 +1,7 @@
 <div ng-controller="educationController" id="education-section" ng-class="{'edit-activator': editable}"
      class="editBox-container section-container background-section background-last-section">
     <!-- EDUCATION EDIT BOX-->
-    <div class="editBox" ng-show="showEducationAdd">
+    <div class="editBox" ng-show="showEducationAdd" style="width: 330px">
         <p class="editTitle">School Name</p>
         <div style="margin: 6px 0px 12px">
             <input type="text" style="width: 100%" ng-model="educationAdd.schoolName">
@@ -24,9 +24,9 @@
         </div>
         <p class="editTitle">Period</p>
         <div style="margin: 6px 0px 12px">
-            <input type="text" style="width: 49%" ng-model="educationAdd.startPeriod"><!--
-                                 --><span style="width: 2%"> </span><!--
-                                 --><input type="text" style="width: 49%" ng-model="educationAdd.endPeriod">
+            <input type="date" style="width: 49%" max="{{educationAdd.endPeriod | date:'yyyy-MM-dd'}}" ng-model="educationAdd.startPeriod"><!--
+         --><span style="width: 2%"> </span><!--
+         --><input type="date" style="width: 49%" min="{{educationAdd.startPeriod | date:'yyyy-MM-dd'}}" ng-model="educationAdd.endPeriod">
         </div>
 
         <a class="waves-effect waves-light btn edit-confirm" ng-click="educationAddConfirm()">Add</a>
@@ -43,7 +43,7 @@
     </div>
     <div ng-class="{'edit-activator': editable}" class="section-container row info-bar" ng-repeat="edu in education">
         <!-- EDUCATION SINGLE ITEM EDIT BOX-->
-        <div class="editBox" ng-show="showEducationEdit[$index]">
+        <div class="editBox" ng-show="showEducationEdit[$index]" style="width: 330px">
             <p class="editTitle">School Name</p>
             <div style="margin: 6px 0px 12px">
                 <input type="text" style="width: 100%" ng-model="educationEdit.schoolName">
@@ -66,9 +66,9 @@
             </div>
             <p class="editTitle">Period</p>
             <div style="margin: 6px 0px 12px">
-                <input type="text" style="width: 49%" ng-model="educationEdit.startPeriod"><!--
-                                     --><span style="width: 2%"> </span><!--
-                                     --><input type="text" style="width: 49%" ng-model="educationEdit.endPeriod">
+                <input type="date" style="width: 49%" max="{{educationEdit.endPeriod | date:'yyyy-MM-dd'}}" ng-model="educationEdit.startPeriod"><!--
+             --><span style="width: 2%"> </span><!--
+             --><input type="date" style="width: 49%" min="{{educationEdit.startPeriod | date:'yyyy-MM-dd'}}" ng-model="educationEdit.endPeriod">
             </div>
 
             <a class="waves-effect waves-light btn edit-confirm" ng-click="educationEditConfirm($index)">Save</a>
@@ -83,7 +83,8 @@
         <div style="display: inline-block">
             <a href="{{edu.schoolUrl}}" class="info-title">{{edu.schoolName}}</a>
             <a class="info-subtitle">{{edu.degree}}, {{edu.field}}</a>
-            <span class="info-date">{{edu.startPeriod}} – {{edu.endPeriod}}</span>
+            <span class="info-date">
+                {{edu.startPeriod | date: "MM/yyyy"}} – <span ng-show="edu.endPeriod">{{edu.endPeriod | date: "MM/yyyy"}}</span><span ng-hide="edu.endPeriod">Present</span>
         </div>
         <div class="info-logo">
             <a href="{{edu.schoolUrl}}">
