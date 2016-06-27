@@ -26,6 +26,7 @@ appControllers.controller('overviewController', ['$scope', 'dataService',
             $scope.name[0] = $scope.firstnameEdit;
             $scope.name[1] = $scope.lastnameEdit;
             $scope.profile.setRemoteProperty('name', angular.copy($scope.name));
+            $scope.profile.setRemoteProperty('displayName', $scope.name[0] + ' ' + $scope.name[1]);
             $scope.showNameEdit = false;
         };
 

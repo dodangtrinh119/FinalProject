@@ -2,6 +2,7 @@
   "rules": {
     ".read": "auth != null",
     "users": {
+      ".indexOn": "displayName",
       "$uid": {
         ".write": "$uid === auth.uid"
       }

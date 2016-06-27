@@ -75,3 +75,12 @@
     border-radius: 1px 1px 3px 3px;
     box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.2);
 }
+
+.search-item {
+    padding: 6px;
+}
+.search-item:hover {
+    color: white;
+    background-color: #3B5998;
+    cursor: pointer;
+}

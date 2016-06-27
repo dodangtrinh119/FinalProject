@@ -24,17 +24,17 @@ appBackend.factory('dataService', function () {
         return firebase.database().ref(refUrl);
     };
     
-    dataLogic.bindQuery = function () {
-        
-    };
-
     dataLogic.bind = function (firebaseRef, callback) {
-        firebaseRef.on('value', callback);
+        if (firebaseRef && callback)
+            firebaseRef.on('value', callback);
+
         return callback;
     };
     dataLogic.unbind = function (firebaseRef, listener) {
-        firebaseRef.off('value', listener);
+        if (firebaseRef && listener)
+            firebaseRef.off('value', listener);
     };
+
     dataLogic.set = function (refUrl, value) {
         var ref = firebase.database().ref(refUrl);
         ref.set(value);
@@ -80,6 +80,7 @@ appBackend.factory('authService', ['$location', 'dataService', function ($locati
                 if (!existed) {
                     var userInfo = new UserInfo();
                     if (user.displayName) {
+                        userInfo.displayName = user.displayName;
                         userInfo.name = Utils.splitsStringToName(user.displayName);
                     }
                     if (user.photoURL)

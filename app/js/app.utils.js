@@ -7,12 +7,8 @@ var Utils = {
         var res = ['', ''];
         var spaceIdx = str.indexOf(' ');
 
-        res[0] = str.substring(0, spaceIdx);
-
-        if (spaceIdx >= 0 && spaceIdx + 1 < str.length) {
-            var secondSpaceIdx = str.indexOf(' ', spaceIdx + 1);
-            res[1] = str.substring(spaceIdx + 1, secondSpaceIdx);
-        }
+        res[0] = str.substr(0, spaceIdx);
+        res[1] = str.substr(spaceIdx + 1);
 
         return res;
     }
