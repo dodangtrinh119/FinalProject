@@ -6,10 +6,10 @@ var appBackend = angular.module('appBackend', []);
 //Initialize Firebaes Backend
 appBackend.config(function () {
     firebase.initializeApp({
-        apiKey: "AIzaSyCcx3Xbp4Zmm79i2fn4vB5Sp4yiyECzxz8",
-        authDomain: "project-4733900774328663952.firebaseapp.com",
-        databaseURL: "https://project-4733900774328663952.firebaseio.com",
-        storageBucket: "project-4733900774328663952.appspot.com",
+        apiKey: "AIzaSyAp025r7cre9NQp8gBWx7gaC_9E8yRpxyM",
+        authDomain: "finalterm-41c3f.firebaseapp.com",
+        databaseURL: "https://finalterm-41c3f.firebaseio.com",
+        storageBucket: "finalterm-41c3f.appspot.com",
     });
 });
 
