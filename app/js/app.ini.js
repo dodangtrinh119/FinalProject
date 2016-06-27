@@ -1,7 +1,7 @@
 /**
  * Created by nmtuan on 05-Jun-16.
  */
-//Script-load Utility
+//Utilities
 $.loadScript = function (url, callback) {
     $.ajax({
         url: url,
@@ -12,6 +12,7 @@ $.loadScript = function (url, callback) {
 };
 
 //Load managed scripts
+$.loadScript('js/models/models.ini.js');
 $.loadScript('js/app-core/app.module.js');
 $.loadScript('js/app-controllers/controllers.module.js');
 $.loadScript('js/backend-adapter/backend.module.js');

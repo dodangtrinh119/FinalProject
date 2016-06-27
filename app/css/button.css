@@ -1,0 +1,51 @@
+ul.browser-default li
+{
+    list-style-type:inherit
+}
+.btn
+{
+    height:31px;
+    box-shadow:none;
+    line-height:29px;
+    font-size:13px;
+    font-weight:700;
+    font-family:sans-serif;
+    text-transform:none;
+    text-shadow:0 1px 1px rgba(0,0,0,0.35);
+}
+.btn:hover {
+    box-shadow:0 1px 3px rgba(0,0,0,0.25);
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+.btn-primary {
+    color: white;
+    background-color:#287bbc;
+    background-image:-webkit-linear-gradient(top,#287bbc 0%,#23639a 100%);
+    background-image:-moz-linear-gradient(top,#287bbc 0%,#23639a 100%);
+    background-image:-o-linear-gradient(top,#287bbc 0%,#23639a 100%);
+    background-image:linear-gradient(top,#287bbc 0%,#23639a 100%);
+}
+.btn-primary:hover {
+    background-color:#2672ae;
+    background-image:-webkit-linear-gradient(top,#2672ae 0%,#1e4f7e 100%);
+    background-image:-moz-linear-gradient(top,#2672ae 0%,#1e4f7e 100%);
+    background-image:-o-linear-gradient(top,#2672ae 0%,#1e4f7e 100%);
+    background-image:linear-gradient(top,#2672ae 0%,#1e4f7e 100%);
+}
+
+.btn-default {
+    color: black;
+    text-shadow: none;
+    background-color: white;
+}
+.btn-default:hover {
+    background-color: whitesmoke;
+}
+.btn-default:focus {
+    background-color: white;
+}
+

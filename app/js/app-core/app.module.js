@@ -13,15 +13,39 @@ app.config(['$locationProvider', '$routeProvider',
             .when('/sign-in', {
                 template: '<sign-in></sign-in>'
             })
+            .when('/sign-up', {
+                template: '<sign-up></sign-up>'
+            })
+            .when('/profile', {
+                template: '<profile></profile>'
+            })
+            .when('/profile/:profileId', {
+                template: '<profile></profile>'
+            })
             .otherwise({
                 redirectTo: '/landing'
             });
     }]);
 
 app.run(['$rootScope', '$location', 'authService', function ($rootScope, $location, authService) {
+    authService.onAuthStateChanged(function (user) {
+        if (user)
+            $location.path('/profile').replace();
+        else
+            $location.path('/sign-in').replace();
 
+        $rootScope.$apply();
+    });
+
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        if (authService.getCurrentUser()) {
+            if ($location.path() == '/sign-in' || $location.path() == '/landing')
+                event.preventDefault();
+        }
+        else if ($location.path().includes('/profile'))
+            event.preventDefault();
+    });
 }]);
-
 
 //Load Components
 $.loadScript('js/app-core/app.components.js');

@@ -7,3 +7,13 @@ app.component('signIn', {
     templateUrl: 'view/sign-in.html',
     controller: 'signInController'
 });
+
+app.component('signUp', {
+    templateUrl: 'view/sign-up.html',
+    controller: 'signUpController'
+});
+
+app.component('profile', {
+    templateUrl: 'view/profile.html',
+    controller: 'profileController'
+});
