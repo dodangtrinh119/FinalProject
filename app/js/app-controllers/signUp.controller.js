@@ -18,6 +18,12 @@ appControllers.controller('signUpController', ['$scope', 'authService',
                 return;
             }
 
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'SignUpSuccess',
+                eventAction: 'click',
+                eventLabel: 'Sign Up Success'
+                });
             //Create User
             $scope.disabled = true;
             $scope.userInfo.displayName = $scope.userInfo.name[0] + ' ' + $scope.userInfo.name[1];

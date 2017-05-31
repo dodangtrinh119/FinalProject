@@ -14,6 +14,12 @@ appControllers.controller("searchController", ['$scope', '$location', 'dataServi
         var queryRef = null;
         var listenerRef = null;
         $scope.onQueryChange = function () {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'FindUser',
+                eventAction: 'type',
+                eventLabel: 'Find User'
+            });
             
             dataService.unbind(queryRef, listenerRef);
 
@@ -34,6 +40,12 @@ appControllers.controller("searchController", ['$scope', '$location', 'dataServi
         }
 
         $scope.profileClick = function (index) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'ClickUser',
+                eventAction: 'click',
+                eventLabel: 'Click User'
+            });
             $location.path('/profile/' + $scope.profiles[index]);
         };
     }]);
